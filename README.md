@@ -56,8 +56,8 @@ testdata <- cbind (subject_test, Y_test, X_test)
 g. Adding additional column to identify the source of the data before merging into one data set
 
 ```
-train$datasource <- "train"
-test$datasource <- "test"
+traindata$datasource <- "train"
+testdata$datasource <- "test"
 ```
 
 h. Merging training data and test data into one data set
@@ -69,7 +69,7 @@ datafull <- rbind(traindata, testdata)
 
 ### 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 
-Subsets the data to include only measurements that have 'mean' or 'std' in the variable name
+Subsets the data to include only measurements that have 'mean' or 'std' in the variable name or is 'subject' or 'activity'
 
 ```
 meanstddata <- datafull[,grepl("[Mm]ean", names(datafull))|grepl("std", names(datafull))|grepl("activity", names(datafull))|grepl("subject", names(datafull))]
