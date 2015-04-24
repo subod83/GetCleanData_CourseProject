@@ -10,7 +10,6 @@ a. Features being measured in the training data and test data
  
 ```{r, echo=TRUE,results='hide'}
 features <- read.csv("UCI HAR Dataset/features.txt", sep=" ", header = FALSE)
-
 ```
 
 b. Types of activities performed by subjects are loaded
@@ -50,7 +49,6 @@ names(Y_train) <- c("activity")
 f. Merging fixed variable data (subject, activity) with coressponding measured variable data
 
 ```{r, echo=TRUE,results='hide'}
-
 traindata <- cbind (subject_train, Y_train, X_train)
 testdata <- cbind (subject_test, Y_test, X_test)
 ```
@@ -71,11 +69,15 @@ datafull <- rbind(traindata, testdata)
 
 ### 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 
+Subsets the data to include only measurements that have 'mean' or 'std' in the variable name
+
 ```{r, echo=TRUE,results='hide'}
-meanstddata <- datafull[,grepl("mean", names(datafull))|grepl("std", names(datafull))|grepl("activity", names(datafull))|grepl("subject", names(datafull))]
+meanstddata <- datafull[,grepl("[Mm]ean", names(datafull))|grepl("std", names(datafull))|grepl("activity", names(datafull))|grepl("subject", names(datafull))]
 ```
 
 ###3. Uses descriptive activity names to name the activities in the data set
+
+The activity is changed to a factor with the labels sourced from activity_labels
 
 ```{r, echo=TRUE,results='hide'}
 meanstddata <- transform(meanstddata, activity = factor(activity, labels = activity_labels$V2))
@@ -83,7 +85,7 @@ meanstddata <- transform(meanstddata, activity = factor(activity, labels = activ
 
 ###4. Appropriately labels the data set with descriptive variable names. 
 
-The labels from the features.txt file are relatively self explanatory, the prefix of 't' and 'f' were not too clear so that was changed to 'time' and 'frequency' coresspondingly. Please refer to the CodeBook for further details.
+The labels from the features.txt file are relatively self explanatory, the prefix of 't' and 'f' were not too clear so that was changed to 'time' and 'frequency' correspondingly. Please refer to the CodeBook for further details.
 
 ```{r,echo=TRUE,results='hide'}
 names(meanstddata) <- gsub("^[f]", "frequency", names(meanstddata))
