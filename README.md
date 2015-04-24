@@ -100,5 +100,5 @@ As specified the table has been tidied with the average of each variable for eac
 install.packages("dplyr")
 library(dplyr)
 datatable <- tbl_df(meanstddata)
-tidydata <- datatable %>% group_by(subject_id,activity) %>% summarise_each(funs(mean))
+tidydata <- datatable %>% group_by(subject, activity) %>% summarise_each(funs(mean))
 ```
