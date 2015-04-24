@@ -7,41 +7,58 @@ output: html_document
 
 
 
-The measurement variables used are specified in camel case, each part is explained below
+The measurement variables used are specified in camel case. The parts of the variable names are explained below
 
 
 
-subject - identifier of the subject
+###subject 
+    identifier of the subject
 
-activity - activity performed by the subject
+###activity
+    activity performed by the subject
 
-time - measurement of time
+###time
+    measurement of time
 
-frequency - measurement of frequency
+###frequency
+    measurement of frequency
 
-Freq - frequency
+###Freq 
+    frequency
 
-Body - Body
+###Body
+    Body
 
-Acc - Acceleration
+###Acc
+    Acceleration
 
-Jerk - Jerk signal
+###Jerk
+    Jerk signal
 
-Gravity - Gravity
+###Gravity
+    Gravity
 
-Gyro - Gyroscope
+###Gyro
+    Gyroscope
 
-Mag - Magnitude
+###Mag
+    Magnitude
 
-angle - angular momentum
+###angle
+    angular momentum
 
-X - along the X axis
+###X 
+    along the X axis
 
-Y - along the Y axis
+###Y
+    along the Y axis
 
-Z - along the Z axis
+###Z  
+    along the Z axis
 
-mean - mean
-
-std - standard deviation
+###mean 
+    mean value
+ 
+###std 
+    standard deviation
 
